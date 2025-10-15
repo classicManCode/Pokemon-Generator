@@ -16,7 +16,8 @@ async function fetchData() {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       if(!response.ok) {
         if(response.status === 404) {
-              console.log(`No Pokémon with the name '${pokemonName}' was found. Please try another.`)
+              const pokemonName = document.getElementById('pokemonName').value;
+              alert(`No Pokémon with the name '${pokemonName}' was found. Please try another.`)
           }
           throw new Error(`Pokémon not found! Please check the name and try again.`);
           
