@@ -4,6 +4,12 @@ getPokemon.onclick = () => {
     fetchData();
 };
 
+pokemonName.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter') {
+    fetchData();
+  }
+})
+
 async function fetchData() {
       const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
       const pokeImg = document.getElementById('pokeImg');
