@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link 
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" 
+  rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="cardContainer" class="card-container">
+    <h1 id="header" class="header">Pokémon Generator</h1>
+
+    <div id="pokeCard" class="poke-card">
+      <input type="text" id="pokemonName" class="pokemon-name" placeholder="Enter a name of a pokémon">
+
+      <div id="pokeDetails" class="poke-details">
+        <img src="" alt="Pokémon Image" id="pokeImg" class="poke-img">
+
+        <div id="pokeDescription" class="poke-description">
+          <p id="pokeName" class="poke-name"><span class="poke-label">Name: </span><span id="pkmnName"></span></p>
+          <p id="pokeType" class="poke-type"><span class="poke-label">Type: </span></span><span id="pkmnType"></span></p>
+          <p id="pokeAbility" class="poke-ability"><span class="poke-label">Abilities: </span></span><span id="pkmnAbility"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <button id="getPokemon" class="get-pokemon">Generate</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
