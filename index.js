@@ -1,7 +1,11 @@
 const getPokemon = document.getElementById('getPokemon');
 
+getPokemon.onclick = () => {
+    fetchData();
+};
+
 async function fetchData() {
-      const pokemonName = document.getElementById('pokemonName').value.toLowerCase;
+      const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
       const pokeImg = document.getElementById('pokeImg');
       const pkmnName = document.getElementById('pkmnName');
       const pkmnType = document.getElementById('pkmnType');
@@ -11,15 +15,22 @@ async function fetchData() {
 
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       if(!response.ok) {
-          throw new Error(`Pokémon not found! Please check the name and try again.`);
-          if(response.status === 404) {
-              alert(`No Pokémon with the name '${pokemonName}' was found. Please try another.`)
+        if(response.status === 404) {
+              console.log(`No Pokémon with the name '${pokemonName}' was found. Please try another.`)
           }
+          throw new Error(`Pokémon not found! Please check the name and try again.`);
+          
       } else {
           const data = await response.json();
           console.log(data);
           if(pokemonName === '') {
-            alert()
+            alert('Please enter a Pokémon name')
+          } else {
+            pokeImg.src = data.sprites.front_default;
+            pokeImg.classList.add('show');
+            pkmnName.textContent = pokemonName.toUpperCase();
+            pkmnType.textContent = data.types.map(item => item.type.name).join(', ').toUpperCase();
+            pkmnAbility.textContent = data.abilities.map(item => item.ability.name).join(', ').toUpperCase();
           }
       }
       
@@ -28,4 +39,3 @@ async function fetchData() {
   }
 }
 
-fetchData();
